@@ -1,1 +1,87 @@
-<p>projects works!</p>
+<div class="projects-container">
+  <header class="projects-header">
+    <h1 class="main-title">Project Journey</h1>
+    <p class="subtitle">My development roadmap from 2021 to present</p>
+  </header>
+
+  <!-- Year Filter Pills -->
+  <div class="year-filter">
+    <button 
+      class="year-pill"
+      [class.active]="selectedYear === null"
+      (click)="filterByYear(0); selectedYear = null">
+      All Projects
+    </button>
+    <button 
+      *ngFor="let year of years"
+      class="year-pill"
+      [class.active]="selectedYear === year"
+      (click)="filterByYear(year)">
+      {{ year }}
+    </button>
+  </div>
+
+  <!-- Timeline Roadmap -->
+  <div class="timeline">
+    <div class="timeline-line"></div>
+    
+    <div *ngFor="let project of filteredProjects; let i = index" 
+         class="timeline-item"
+         [class.left]="i % 2 === 0"
+         [class.right]="i % 2 !== 0"
+         [attr.data-year]="project.year">
+      
+      <div class="timeline-marker">
+        <div class="marker-dot"></div>
+        <span class="year-badge">{{ project.year }}</span>
+      </div>
+      
+      <div class="project-card">
+        <div class="card-header">
+          <span class="project-icon">{{ project.icon }}</span>
+          <span class="category-badge">{{ project.category }}</span>
+        </div>
+        
+        <h3 class="project-title">{{ project.title }}</h3>
+        <p class="project-description">{{ project.description }}</p>
+        
+        <div class="tech-stack">
+          <span *ngFor="let tech of project.technologies" class="tech-tag">
+            {{ tech }}
+          </span>
+        </div>
+        
+        <div class="project-links">
+          <a *ngIf="project.github" 
+             [href]="project.github" 
+             target="_blank" 
+             class="link-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a *ngIf="project.link" 
+             [href]="project.link" 
+             target="_blank" 
+             class="link-btn demo-btn">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="stat-card">
+      <div class="stat-number">{{ projects.length }}</div>
+      <div class="stat-label">Total Projects</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">{{ years.length }}</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">15+</div>
+      <div class="stat-label">Technologies</div>
+    </div>
+  </div>
+</div>

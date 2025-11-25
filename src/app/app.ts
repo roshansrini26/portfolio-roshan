@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';  // <-- add this line!
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule],
+  standalone: true,
+  imports: [RouterModule, NgbModule],  // <-- add NgbModule here!
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

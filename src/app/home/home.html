@@ -1,1 +1,93 @@
-<p>home works!</p>
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="greeting">
+        <span class="wave">👋</span>
+        <span class="hello-text">Hello, I'm</span>
+      </div>
+      
+      <h1 class="name-title">
+        <span class="first-name">Your</span>
+        <span class="last-name">Name</span>
+      </h1>
+      
+      <div class="role-container">
+        <span class="role-prefix">A passionate</span>
+        <span class="rotating-role">{{ currentRole }}</span>
+      </div>
+      
+      <p class="tagline">
+        Building innovative solutions and exploring cutting-edge technologies
+        to make a meaningful impact in the world of technology.
+      </p>
+      
+      <div class="cta-buttons">
+        <a routerLink="/projects" class="btn btn-primary">
+          View My Work
+          <span class="arrow">→</span>
+        </a>
+        <button (click)="scrollToContact()" class="btn btn-secondary">
+          Get In Touch
+        </button>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://github.com/yourusername" target="_blank" class="social-icon">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:your.email@example.com" class="social-icon">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://twitter.com/yourusername" target="_blank" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="floating-card card-1">
+        <i class="fas fa-code"></i>
+      </div>
+      <div class="floating-card card-2">
+        <i class="fas fa-laptop-code"></i>
+      </div>
+      <div class="floating-card card-3">
+        <i class="fas fa-rocket"></i>
+      </div>
+      <div class="gradient-sphere"></div>
+    </div>
+  </section>
+  
+  <!-- Quick About Section -->
+  <section class="quick-about">
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="icon-wrapper">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Education</h3>
+        <p>Master's Student at<br><strong>University Name</strong></p>
+      </div>
+      
+      <div class="about-card">
+        <div class="icon-wrapper">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>Focus Area</h3>
+        <p>Specializing in<br><strong>Your Field</strong></p>
+      </div>
+      
+      <div class="about-card">
+        <div class="icon-wrapper">
+          <i class="fas fa-award"></i>
+        </div>
+        <h3>Experience</h3>
+        <p>2+ years in<br><strong>Your Domain</strong></p>
+      </div>
+    </div>
+  </section>
+</div>
