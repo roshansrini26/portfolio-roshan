@@ -1,93 +1,112 @@
-<div class="home-container">
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="greeting">
-        <span class="wave">👋</span>
-        <span class="hello-text">Hello, I'm</span>
-      </div>
-      
-      <h1 class="name-title">
-        <span class="first-name">Your</span>
-        <span class="last-name">Name</span>
-      </h1>
-      
-      <div class="role-container">
-        <span class="role-prefix">A passionate</span>
-        <span class="rotating-role">{{ currentRole }}</span>
-      </div>
-      
-      <p class="tagline">
-        Building innovative solutions and exploring cutting-edge technologies
-        to make a meaningful impact in the world of technology.
-      </p>
-      
-      <div class="cta-buttons">
-        <a routerLink="/projects" class="btn btn-primary">
-          View My Work
-          <span class="arrow">→</span>
-        </a>
-        <button (click)="scrollToContact()" class="btn btn-secondary">
-          Get In Touch
-        </button>
-      </div>
-      
-      <div class="social-links">
-        <a href="https://github.com/yourusername" target="_blank" class="social-icon">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="mailto:your.email@example.com" class="social-icon">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://twitter.com/yourusername" target="_blank" class="social-icon">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </div>
-    </div>
-    
-    <div class="hero-visual">
-      <div class="floating-card card-1">
-        <i class="fas fa-code"></i>
-      </div>
-      <div class="floating-card card-2">
-        <i class="fas fa-laptop-code"></i>
-      </div>
-      <div class="floating-card card-3">
-        <i class="fas fa-rocket"></i>
-      </div>
-      <div class="gradient-sphere"></div>
-    </div>
-  </section>
+<div class="home-wrapper">
   
-  <!-- Quick About Section -->
-  <section class="quick-about">
-    <div class="about-grid">
-      <div class="about-card">
-        <div class="icon-wrapper">
-          <i class="fas fa-graduation-cap"></i>
+  <!-- Main Content Area -->
+  <section class="intro-section">
+    <div class="content-box">
+      <div class="text-content">
+        <h1 class="name">Roshan Srinivasan</h1>
+        <p class="title">Data Science & AI Engineer</p>
+        <p class="bio">
+          Currently pursuing my Master's in Data Science at TU Hamburg. 
+          I work on machine learning solutions for real-world problems — 
+          from transport mode detection to brain tumor classification.
+        </p>
+        
+        <div class="quick-links">
+          <a routerLink="/projects" class="link-button primary">View Projects</a>
+          <a routerLink="/skills" class="link-button secondary">My Skills</a>
         </div>
-        <h3>Education</h3>
-        <p>Master's Student at<br><strong>University Name</strong></p>
       </div>
       
-      <div class="about-card">
-        <div class="icon-wrapper">
-          <i class="fas fa-brain"></i>
+      <div class="info-sidebar">
+        <div class="info-item">
+          <span class="label">Location</span>
+          <span class="value">Hamburg, Germany</span>
         </div>
-        <h3>Focus Area</h3>
-        <p>Specializing in<br><strong>Your Field</strong></p>
-      </div>
-      
-      <div class="about-card">
-        <div class="icon-wrapper">
-          <i class="fas fa-award"></i>
+        <div class="info-item">
+          <span class="label">Email</span>
+          <a href="mailto:roshansrini26@gmail.com" class="value link">roshansrini26@gmail.com</a>
         </div>
-        <h3>Experience</h3>
-        <p>2+ years in<br><strong>Your Domain</strong></p>
+        <div class="info-item">
+          <span class="label">Phone</span>
+          <span class="value">+49 15511303143</span>
+        </div>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/roshan-srini-201418222" target="_blank" class="social-link">LinkedIn</a>
+          <a href="https://github.com/roshansrini26" target="_blank" class="social-link">GitHub</a>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Experience Section -->
+  <section class="experience-section">
+    <h2 class="section-heading">Current Work</h2>
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <h3>Data Science and Analytics Associate</h3>
+          <p class="company">Motiv AI LLP · Coimbatore, India</p>
+        </div>
+        <span class="period">Dec 2024 – May 2025</span>
+      </div>
+      <ul class="exp-list">
+        <li>Developed ML features for Transport Mode Detection and Crash Detection</li>
+        <li>Collaborated with IIT Madras CoEZET research hub on data collection systems</li>
+        <li>Optimized solutions using algorithmic thinking and data-driven approaches</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education-section">
+    <h2 class="section-heading">Education</h2>
+    
+    <div class="edu-timeline">
+      <div class="edu-item">
+        <div class="timeline-dot"></div>
+        <div class="edu-content">
+          <div class="edu-header">
+            <div>
+              <h3>Master's in Data Science</h3>
+              <p class="institution">Technical University of Hamburg-Harburg</p>
+            </div>
+            <span class="edu-period">Oct 2025 – Present</span>
+          </div>
+          <p class="location">Hamburg, Germany</p>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="timeline-dot"></div>
+        <div class="edu-content">
+          <div class="edu-header">
+            <div>
+              <h3>B.Tech in Computer Science & Engineering</h3>
+              <p class="institution">Amrita Vishwa Vidyapeetham, Chennai</p>
+            </div>
+            <span class="edu-period">Oct 2021 – May 2025</span>
+          </div>
+          <p class="location">Chennai, India · CGPA: 8.44 (Distinction)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats -->
+  <section class="stats-section">
+    <div class="stat-box">
+      <div class="stat-number">2+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">5+</div>
+      <div class="stat-label">ML Projects</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Publications</div>
+    </div>
+  </section>
+
 </div>
