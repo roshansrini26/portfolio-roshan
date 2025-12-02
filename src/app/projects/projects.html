@@ -1,87 +1,45 @@
-<div class="projects-container">
+<div class="projects-wrapper">
+  
   <header class="projects-header">
-    <h1 class="main-title">Project Journey</h1>
-    <p class="subtitle">My development roadmap from 2021 to present</p>
+    <h1 class="page-title">Projects</h1>
+    <p class="page-description">A chronological overview of my technical work and contributions</p>
   </header>
 
-  <!-- Year Filter Pills -->
-  <div class="year-filter">
-    <button 
-      class="year-pill"
-      [class.active]="selectedYear === null"
-      (click)="filterByYear(0); selectedYear = null">
-      All Projects
-    </button>
-    <button 
-      *ngFor="let year of years"
-      class="year-pill"
-      [class.active]="selectedYear === year"
-      (click)="filterByYear(year)">
-      {{ year }}
-    </button>
-  </div>
-
-  <!-- Timeline Roadmap -->
-  <div class="timeline">
-    <div class="timeline-line"></div>
+  <div class="timeline-container">
+    <div class="timeline-track"></div>
     
-    <div *ngFor="let project of filteredProjects; let i = index" 
-         class="timeline-item"
-         [class.left]="i % 2 === 0"
-         [class.right]="i % 2 !== 0"
-         [attr.data-year]="project.year">
-      
+    <div *ngFor="let project of projects; let i = index" class="project-entry">
       <div class="timeline-marker">
         <div class="marker-dot"></div>
-        <span class="year-badge">{{ project.year }}</span>
       </div>
       
       <div class="project-card">
-        <div class="card-header">
-          <span class="project-icon">{{ project.icon }}</span>
-          <span class="category-badge">{{ project.category }}</span>
+        <div class="project-header">
+          <div class="header-main">
+            <h2 class="project-title">{{ project.title }}</h2>
+            <p *ngIf="project.role" class="project-role">{{ project.role }}</p>
+          </div>
+          <span class="project-period">{{ project.period }}</span>
         </div>
         
-        <h3 class="project-title">{{ project.title }}</h3>
-        <p class="project-description">{{ project.description }}</p>
+        <ul class="project-details">
+          <li *ngFor="let detail of project.description">{{ detail }}</li>
+        </ul>
         
-        <div class="tech-stack">
-          <span *ngFor="let tech of project.technologies" class="tech-tag">
-            {{ tech }}
-          </span>
+        <div class="tech-tags">
+          <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
         </div>
         
-        <div class="project-links">
-          <a *ngIf="project.github" 
-             [href]="project.github" 
-             target="_blank" 
-             class="link-btn github-btn">
-            <i class="fab fa-github"></i> GitHub
+        <div *ngIf="project.github || project.link" class="project-links">
+          <a *ngIf="project.github" [href]="project.github" target="_blank" class="project-link">
+            View on GitHub →
           </a>
-          <a *ngIf="project.link" 
-             [href]="project.link" 
-             target="_blank" 
-             class="link-btn demo-btn">
-            <i class="fas fa-external-link-alt"></i> Live Demo
+          <a *ngIf="project.link" [href]="project.link" target="_blank" class="project-link">
+            Live Demo →
           </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Stats Section -->
-  <div class="stats-section">
-    <div class="stat-card">
-      <div class="stat-number">{{ projects.length }}</div>
-      <div class="stat-label">Total Projects</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">{{ years.length }}</div>
-      <div class="stat-label">Years Experience</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">15+</div>
-      <div class="stat-label">Technologies</div>
-    </div>
-  </div>
 </div>

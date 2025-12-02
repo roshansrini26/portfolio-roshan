@@ -1,8 +1,7 @@
 <nav class="modern-navbar">
   <div class="nav-container">
     <a class="nav-logo" routerLink="/">
-      <span class="logo-icon">💼</span>
-      <span class="logo-text">Portfolio</span>
+      <span class="logo-text">Personal Portfolio</span>
     </a>
     
     <button class="nav-toggle" 
@@ -22,7 +21,6 @@
              routerLinkActive="active"
              [routerLinkActiveOptions]="{exact:true}"
              (click)="closeMenu()">
-            <span class="link-icon">🏠</span>
             <span class="link-text">Home</span>
           </a>
         </li>
@@ -31,7 +29,6 @@
              routerLink="/skills" 
              routerLinkActive="active"
              (click)="closeMenu()">
-            <span class="link-icon">💡</span>
             <span class="link-text">Skills</span>
           </a>
         </li>
@@ -40,7 +37,6 @@
              routerLink="/projects" 
              routerLinkActive="active"
              (click)="closeMenu()">
-            <span class="link-icon">🚀</span>
             <span class="link-text">Projects</span>
           </a>
         </li>

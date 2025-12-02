@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Skill {
   category: string;
-  icon: string;
   items: string[];
-  color: string;
 }
 
 interface Network {
@@ -14,7 +12,6 @@ interface Network {
   title: string;
   organization: string;
   description: string[];
-  image?: string;
 }
 
 interface Publication {
@@ -23,14 +20,19 @@ interface Publication {
   authors: string;
   description: string[];
   tech: string;
-  icon: string;
 }
 
 interface Achievement {
   date: string;
   title: string;
   description: string[];
-  icon: string;
+}
+
+interface Certificate {
+  name: string;
+  issuer: string;
+  date: string;
+  image: string;
 }
 
 @Component({
@@ -40,37 +42,37 @@ interface Achievement {
   templateUrl: './skills.html',
   styleUrls: ['./skills.css']
 })
-export class Skills implements OnInit {
+export class Skills {
+  selectedCertificate: Certificate | null = null;
+
+  openCertificate(cert: Certificate): void {
+    this.selectedCertificate = cert;
+  }
+
+  closeCertificate(): void {
+    this.selectedCertificate = null;
+  }
+
   skills: Skill[] = [
     {
       category: 'Programming Languages',
-      icon: '💻',
-      items: ['Python', 'C++'],
-      color: '#667eea'
+      items: ['Python', 'C++']
     },
     {
       category: 'Frameworks & Libraries',
-      icon: '📚',
-      items: ['HTML5', 'CSS3', 'Bootstrap', 'Angular', 'TensorFlow', 'OpenCV', 'Hugging Face', 'BERT'],
-      color: '#764ba2'
+      items: ['HTML5', 'CSS3', 'Bootstrap', 'Angular', 'TensorFlow', 'OpenCV', 'Hugging Face', 'BERT']
     },
     {
       category: 'Database',
-      icon: '🗄️',
-      items: ['MySQL', 'SQLAlchemy', 'MongoDB'],
-      color: '#f093fb'
+      items: ['MySQL', 'SQLAlchemy', 'MongoDB']
     },
     {
       category: 'Tools',
-      icon: '🛠️',
-      items: ['Jupyter Lab', 'Jupyter Notebook', 'Git/Github', 'Microsoft PowerBI', 'MySQL Workbench'],
-      color: '#4facfe'
+      items: ['Jupyter Lab', 'Jupyter Notebook', 'Git/Github', 'Microsoft PowerBI', 'MySQL Workbench']
     },
     {
       category: 'Specialized Domains',
-      icon: '🎯',
-      items: ['Deep Learning', 'Computer Vision', 'Cloud Computing (AWS)', 'Natural Language Processing'],
-      color: '#43e97b'
+      items: ['Deep Learning', 'Computer Vision', 'Cloud Computing (AWS)', 'Natural Language Processing']
     }
   ];
 
@@ -127,24 +129,22 @@ export class Skills implements OnInit {
       title: 'Quantum-Assisted Deep Learning for Secure Brain Tumor Image Classification',
       authors: 'Karthigeyan, Dr. Diviya',
       description: [
-        'Developed quantum circuits for image preprocessing',
+        'Developed quantum circuits for image preprocessing to reduce computational time',
         'Used DNN to optimize training time and improve accuracy',
         'Implemented cryptographic techniques for secure image transfer'
       ],
-      tech: 'Quantum Circuits, DNN, Cryptography, Python',
-      icon: '🧠'
+      tech: 'Quantum Circuits, DNN, Cryptography, Python'
     },
     {
       year: '2024',
       title: 'Optimizing Lung Cancer Classification Prediction based on Random Forest and SMOTE Techniques',
       authors: 'R Bhuvaneshwari',
       description: [
-        'Achieved 98% accuracy and 99% F1 score',
-        'Addressed class imbalance using SMOTE',
+        'Achieved 98% accuracy and 99% F1 score with Random Forest model',
+        'Addressed class imbalance using SMOTE technique',
         'Published single-authored research paper'
       ],
-      tech: 'Random Forest, SMOTE, Python',
-      icon: '🔬'
+      tech: 'Random Forest, SMOTE, Python'
     }
   ];
 
@@ -156,8 +156,7 @@ export class Skills implements OnInit {
         'National level hackathon by SONA College of Technology',
         'Developed HealthCare Chatbot using NLP',
         'Facilitated consultations and appointment bookings'
-      ],
-      icon: '🏆'
+      ]
     },
     {
       date: '08/2022',
@@ -166,37 +165,40 @@ export class Skills implements OnInit {
         'Problem statement by Ministry of School Education, Government of India',
         'Developed GAMES - Asset Management Android App',
         'Selected to interact with Prime Minister via live video call'
-      ],
-      icon: '🥈'
+      ]
     }
   ];
 
-  certificates = [
-    { name: 'AWS Certified Cloud Practitioner', image: 'cert1.jpg' },
-    { name: 'Introduction to Big Data with Spark and Hadoop', image: 'cert2.jpg' },
-    { name: 'Database and SQL for Data Science - IBM', image: 'cert3.jpg' }
+  certificates: Certificate[] = [
+    {
+      name: 'AWS Certified Cloud Practitioner',
+      issuer: 'Amazon Web Services',
+      date: '02/2025 – 02/2028',
+      image: 'assets/images/certificates/AWS_CCP.jpg'
+    },
+    {
+      name: 'Introduction to Generative AI',
+      issuer: 'Google Cloud',
+      date: '2024',
+      image: 'assets/images/certificates/Into_GenAI.jpg'
+    },
+    {
+      name: 'Database and SQL for Data Science with Python',
+      issuer: 'IBM',
+      date: '2024',
+      image: 'assets/images/certificates/Database and SQL.jpg'
+    },
   ];
 
   languages = [
-    { name: 'English', level: 'IELTS Band 7 (CEFR C1)', proficiency: 95, flag: '🇬🇧' },
-    { name: 'German', level: 'Learning A2', proficiency: 40, flag: '🇩🇪' }
+    { name: 'English', level: 'IELTS Band 7 (CEFR C1)', proficiency: 95 },
+    { name: 'German', level: 'Learning A2', proficiency: 40 }
   ];
 
   extracurricular = [
-    { activity: 'Basketball Player', icon: '🏀', image: 'basketball.jpg' },
-    { activity: 'Tech Blogger', icon: '✍️', image: 'blog.jpg' },
-    { activity: 'Community Volunteer', icon: '🤝', image: 'volunteer.jpg' }
+    'Basketball Player - Active participation in university tournaments',
+    'Tech Blogger - Writing about ML and AI developments',
+    'Community Volunteer - Organizing technical workshops for students',
+    'Open Source Contributor - Contributing to GitHub projects'
   ];
-
-  currentCertIndex = 0;
-
-  ngOnInit() {
-    this.startCertificateCarousel();
-  }
-
-  startCertificateCarousel() {
-    setInterval(() => {
-      this.currentCertIndex = (this.currentCertIndex + 1) % this.certificates.length;
-    }, 3000);
-  }
 }

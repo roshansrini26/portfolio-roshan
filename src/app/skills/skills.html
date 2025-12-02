@@ -1,87 +1,61 @@
-<div class="skills-container">
+<div class="skills-wrapper">
   
-  <!-- Hero Header -->
-  <header class="skills-hero">
+  <!-- Page Header -->
+  <header class="page-header">
     <h1 class="page-title">Skills & Experience</h1>
-    <p class="page-subtitle">A comprehensive overview of my technical expertise and professional journey</p>
+    <p class="page-description">Technical expertise, professional activities, and achievements</p>
   </header>
 
-  <!-- Skills Flashcards Section -->
+  <!-- Technical Skills - Flashcards -->
   <section class="section">
-    <h2 class="section-title">
-      <span class="title-icon">💡</span>
-      Technical Skills
-    </h2>
+    <h2 class="section-heading">Technical Skills</h2>
     <div class="skills-grid">
-      <div *ngFor="let skill of skills; let i = index" 
-           class="skill-card"
-           [style.animation-delay.s]="i * 0.1">
-        <div class="card-inner">
-          <!-- Front Side -->
-          <div class="card-front" [style.background]="'linear-gradient(135deg, ' + skill.color + ' 0%, ' + skill.color + 'dd 100%)'">
-            <div class="skill-icon">{{ skill.icon }}</div>
-            <h3 class="skill-category">{{ skill.category }}</h3>
-            <div class="flip-hint">Click to view</div>
-          </div>
-          <!-- Back Side -->
-          <div class="card-back">
-            <h3 class="skill-category-back">{{ skill.category }}</h3>
-            <div class="skill-items">
-              <span *ngFor="let item of skill.items" class="skill-tag">{{ item }}</span>
-            </div>
+      <div *ngFor="let skill of skills" class="skill-card">
+        <div class="skill-front">
+          <h3 class="skill-category">{{ skill.category }}</h3>
+          <p class="flip-hint">Hover to view</p>
+        </div>
+        <div class="skill-back">
+          <div class="skill-items">
+            <span *ngFor="let item of skill.items" class="skill-tag">{{ item }}</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Networks & Memberships Timeline -->
-  <section class="section networks-section">
-    <h2 class="section-title">
-      <span class="title-icon">🤝</span>
-      Networks & Memberships
-    </h2>
-    <div class="network-timeline">
-      <div class="timeline-line"></div>
-      <div *ngFor="let network of networks; let i = index" 
-           class="network-item"
-           [class.left]="i % 2 === 0"
-           [class.right]="i % 2 !== 0">
-        <div class="network-marker">
-          <div class="marker-circle"></div>
-        </div>
-        <div class="network-card">
-          <div class="network-header">
-            <span class="network-date">{{ network.date }}</span>
-            <span class="network-location">📍 {{ network.location }}</span>
-          </div>
-          <h3 class="network-title">{{ network.title }}</h3>
-          <p class="network-org">{{ network.organization }}</p>
-          <ul class="network-desc">
-            <li *ngFor="let desc of network.description">{{ desc }}</li>
-          </ul>
-          <div class="network-image-placeholder">
-            <i class="fas fa-image"></i>
-            <span>Add your photo here</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Publications Section -->
+  <!-- Networks & Memberships -->
   <section class="section">
-    <h2 class="section-title">
-      <span class="title-icon">📄</span>
-      Publications & Research
-    </h2>
-    <div class="publications-grid">
-      <div *ngFor="let pub of publications" class="publication-card">
-        <div class="pub-icon">{{ pub.icon }}</div>
-        <div class="pub-year">{{ pub.year }}</div>
+    <h2 class="section-heading">Networks & Memberships</h2>
+    <div class="networks-list">
+      <div *ngFor="let network of networks" class="network-item">
+        <div class="network-header">
+          <div class="network-meta">
+            <span class="network-date">{{ network.date }}</span>
+            <span class="network-location">{{ network.location }}</span>
+          </div>
+        </div>
+        <h3 class="network-title">{{ network.title }}</h3>
+        <p class="network-org">{{ network.organization }}</p>
+        <ul class="network-details">
+          <li *ngFor="let desc of network.description">{{ desc }}</li>
+        </ul>
+        <div class="image-placeholder">
+          <span class="placeholder-text">Add photo here</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="section">
+    <h2 class="section-heading">Publications</h2>
+    <div class="publications-list">
+      <div *ngFor="let pub of publications" class="publication-item">
+        <div class="pub-year-badge">{{ pub.year }}</div>
         <h3 class="pub-title">{{ pub.title }}</h3>
-        <p class="pub-authors">{{ pub.authors }}</p>
-        <ul class="pub-points">
+        <p class="pub-authors">Co-authors: {{ pub.authors }}</p>
+        <ul class="pub-highlights">
           <li *ngFor="let point of pub.description">{{ point }}</li>
         </ul>
         <div class="pub-tech">
@@ -93,104 +67,98 @@
 
   <!-- Honours & Awards -->
   <section class="section">
-    <h2 class="section-title">
-      <span class="title-icon">🎓</span>
-      Honours & Academic Excellence
-    </h2>
-    <div class="honours-card">
-      <div class="honours-badge">
-        <i class="fas fa-trophy"></i>
+    <h2 class="section-heading">Honours & Awards</h2>
+    <div class="honours-box">
+      <div class="honours-header">
+        <h3>Bachelor of Technology, Amrita University</h3>
+        <span class="grade-badge">First Class with Distinction</span>
       </div>
-      <h3>Bachelor of Technology, Amrita University</h3>
-      <p class="honours-grade">Anticipated First Class with Distinction</p>
-      <ul class="honours-list">
-        <li>Published single-authored research paper</li>
-        <li>Active member of multiple technical clubs</li>
-        <li>Leadership roles in national-level events</li>
-      </ul>
+      <div class="honours-content">
+        <p class="cgpa">CGPA: 8.44</p>
+        <ul class="honours-list">
+          <li>Published single-authored research paper</li>
+          <li>Leadership roles in multiple technical organizations</li>
+          <li>National-level hackathon achievements</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- Achievements / Hackathons -->
   <section class="section">
-    <h2 class="section-title">
-      <span class="title-icon">🏆</span>
-      Achievements & Hackathons
-    </h2>
-    <div class="achievements-grid">
-      <div *ngFor="let achievement of achievements" class="achievement-card">
-        <div class="achievement-icon">{{ achievement.icon }}</div>
-        <div class="achievement-content">
-          <span class="achievement-date">{{ achievement.date }}</span>
-          <h3 class="achievement-title">{{ achievement.title }}</h3>
-          <ul class="achievement-desc">
-            <li *ngFor="let desc of achievement.description">{{ desc }}</li>
-          </ul>
-        </div>
+    <h2 class="section-heading">Achievements & Hackathons</h2>
+    <div class="achievements-list">
+      <div *ngFor="let achievement of achievements" class="achievement-item">
+        <span class="achievement-date">{{ achievement.date }}</span>
+        <h3 class="achievement-title">{{ achievement.title }}</h3>
+        <ul class="achievement-details">
+          <li *ngFor="let desc of achievement.description">{{ desc }}</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Certifications Carousel -->
-  <section class="section">
-    <h2 class="section-title">
-      <span class="title-icon">📜</span>
-      Certifications
-    </h2>
-    <div class="certificates-carousel">
-      <div class="carousel-track" [style.transform]="'translateX(-' + (currentCertIndex * 100) + '%)'">
-        <div *ngFor="let cert of certificates" class="certificate-slide">
-          <div class="cert-placeholder">
-            <i class="fas fa-certificate"></i>
-            <p>{{ cert.name }}</p>
-            <span class="cert-note">Upload certificate image</span>
-          </div>
+  <!-- Certifications -->
+<section class="section">
+  <h2 class="section-heading">Certifications</h2>
+  <div class="certificates-grid">
+    <div *ngFor="let cert of certificates" class="cert-card" (click)="openCertificate(cert)">
+      <div class="cert-image-container">
+        <img [src]="cert.image" [alt]="cert.name" class="cert-image">
+        <div class="cert-overlay">
+          <i class="fas fa-search-plus"></i>
+          <span>Click to view</span>
         </div>
       </div>
-      <div class="carousel-indicators">
-        <span *ngFor="let cert of certificates; let i = index"
-              class="indicator"
-              [class.active]="i === currentCertIndex"></span>
-      </div>
+      <h3 class="cert-name">{{ cert.name }}</h3>
+      <p class="cert-issuer">{{ cert.issuer }}</p>
+      <p class="cert-date">{{ cert.date }}</p>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Certificate Modal (Lightbox) -->
+<div *ngIf="selectedCertificate" class="cert-modal" (click)="closeCertificate()">
+  <div class="cert-modal-content">
+    <button class="cert-close" (click)="closeCertificate()">
+      <i class="fas fa-times"></i>
+    </button>
+    <img [src]="selectedCertificate.image" [alt]="selectedCertificate.name" class="cert-modal-image">
+    <div class="cert-modal-info">
+      <h3>{{ selectedCertificate.name }}</h3>
+      <p>{{ selectedCertificate.issuer }} • {{ selectedCertificate.date }}</p>
+    </div>
+  </div>
+</div>
 
   <!-- Language Skills -->
   <section class="section">
-    <h2 class="section-title">
-      <span class="title-icon">🌍</span>
-      Language Skills
-    </h2>
+    <h2 class="section-heading">Language Skills</h2>
     <div class="languages-grid">
-      <div *ngFor="let lang of languages" class="language-card">
-        <div class="lang-flag">{{ lang.flag }}</div>
+      <div *ngFor="let lang of languages" class="language-item">
         <h3 class="lang-name">{{ lang.name }}</h3>
         <p class="lang-level">{{ lang.level }}</p>
         <div class="progress-bar">
           <div class="progress-fill" [style.width.%]="lang.proficiency"></div>
         </div>
-        <span class="proficiency-label">{{ lang.proficiency }}% Proficiency</span>
+        <span class="proficiency-text">{{ lang.proficiency }}%</span>
       </div>
     </div>
   </section>
 
   <!-- Extracurricular Activities -->
   <section class="section">
-    <h2 class="section-title">
-      <span class="title-icon">🎨</span>
-      Extracurricular Activities
-    </h2>
-    <div class="extracurricular-grid">
-      <div *ngFor="let activity of extracurricular" class="activity-card">
-        <div class="activity-image-placeholder">
+    <h2 class="section-heading">Extracurricular Activities</h2>
+    <div class="extracurricular-box">
+      <div class="activity-image-section">
+        <div class="activity-placeholder">
           <i class="fas fa-image"></i>
-          <span>Add {{ activity.activity }} photo</span>
-        </div>
-        <div class="activity-info">
-          <span class="activity-icon">{{ activity.icon }}</span>
-          <h3>{{ activity.activity }}</h3>
+          <span>Add basketball/activity photos here</span>
         </div>
       </div>
+      <ul class="extracurricular-list">
+        <li *ngFor="let activity of extracurricular">{{ activity }}</li>
+      </ul>
     </div>
   </section>
 
