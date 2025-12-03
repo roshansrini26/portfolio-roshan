@@ -1,16 +1,28 @@
+:root {
+  --navbar-bg: #B59E7D;
+  --accent-dark: #584738;
+  --background: #F1EADA;
+  --secondary-gray: #AAA396;
+  --light-beige: #CEC1A8;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  background: var(--background);
+}
+
 .modern-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--navbar-bg);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 20px rgba(88, 71, 56, 0.15);
   padding: 1rem 0;
 }
 
@@ -30,7 +42,7 @@
   text-decoration: none;
   font-weight: 800;
   font-size: 1.5rem;
-  color: #d06c2a;
+  color: var(--accent-dark);
   transition: all 0.3s ease;
 }
 
@@ -39,10 +51,7 @@
 }
 
 .logo-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-dark);
 }
 
 .nav-logo:hover {
@@ -62,7 +71,7 @@
 .toggle-line {
   width: 25px;
   height: 3px;
-  background: #667eea;
+  background: var(--accent-dark);
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -102,7 +111,7 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #64748b;
+  color: var(--accent-dark);
   font-weight: 600;
   font-size: 1.05rem;
   transition: all 0.3s ease;
@@ -122,13 +131,13 @@
   left: 0;
   width: 0;
   height: 3px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: var(--accent-dark);
   border-radius: 3px;
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #667eea;
+  color: #3d3127;
 }
 
 .nav-link:hover .link-icon {
@@ -140,7 +149,7 @@
 }
 
 .nav-link.active {
-  color: #667eea;
+  color: #3d3127;
 }
 
 .nav-link.active::after {
@@ -149,19 +158,20 @@
 
 .nav-cta {
   padding: 0.75rem 1.8rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--accent-dark);
   color: white;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 700;
   font-size: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(88, 71, 56, 0.3);
 }
 
 .nav-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+  box-shadow: 0 6px 25px rgba(88, 71, 56, 0.5);
+  background: #4a3d2f;
 }
 
 /* Mobile Responsive */
@@ -176,7 +186,7 @@
     left: -100%;
     width: 100%;
     height: calc(100vh - 80px);
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--navbar-bg);
     backdrop-filter: blur(10px);
     flex-direction: column;
     justify-content: flex-start;

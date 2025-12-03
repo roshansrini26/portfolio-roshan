@@ -66,7 +66,8 @@ export class Projects {
         'Integrated computer vision techniques for real-time detection',
         'Enhanced YOLO models for simultaneous object and lane tracking'
       ],
-      technologies: ['Python', 'YOLO', 'OpenCV', 'Computer Vision']
+      technologies: ['Python', 'YOLO', 'OpenCV', 'Computer Vision'],
+      github: 'https://github.com/roshansrini26/object_lane_detection'
     },
     {
       id: 5,

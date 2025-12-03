@@ -197,8 +197,6 @@ export class Skills {
 
   extracurricular = [
     'Basketball Player - Active participation in university tournaments',
-    'Tech Blogger - Writing about ML and AI developments',
     'Community Volunteer - Organizing technical workshops for students',
-    'Open Source Contributor - Contributing to GitHub projects'
   ];
 }

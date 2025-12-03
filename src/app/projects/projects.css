@@ -1,3 +1,7 @@
+/* ========================================
+   PROJECTS PAGE - projects.css
+   ======================================== */
+
 .projects-wrapper {
   max-width: 900px;
   margin: 0 auto;
@@ -13,14 +17,14 @@
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #111827;
+  color: #584738;
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.02em;
 }
 
 .page-description {
   font-size: 1.05rem;
-  color: #6b7280;
+  color: #AAA396;
   margin: 0;
 }
 
@@ -35,8 +39,8 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: #e5e7eb;
+  width: 3px;
+  background: #CEC1A8;
 }
 
 .project-entry {
@@ -50,31 +54,33 @@
 
 .timeline-marker {
   position: absolute;
-  left: -2.7rem;
+  left: -2.8rem;
   top: 0.5rem;
 }
 
 .marker-dot {
-  width: 14px;
-  height: 14px;
-  background: #6366f1;
+  width: 16px;
+  height: 16px;
+  background: #B59E7D;
   border: 3px solid white;
   border-radius: 50%;
-  box-shadow: 0 0 0 2px #e5e7eb;
+  box-shadow: 0 0 0 3px #CEC1A8;
 }
 
 /* Project Card */
 .project-card {
   background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border: 2px solid #CEC1A8;
+  border-radius: 12px;
   padding: 1.75rem;
   transition: all 0.2s;
+  box-shadow: 0 2px 15px rgba(88, 71, 56, 0.08);
 }
 
 .project-card:hover {
-  border-color: #d1d5db;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-color: #B59E7D;
+  box-shadow: 0 4px 20px rgba(181, 158, 125, 0.15);
+  transform: translateY(-2px);
 }
 
 .project-header {
@@ -92,26 +98,26 @@
 .project-title {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #111827;
+  color: #584738;
   margin: 0 0 0.3rem 0;
   line-height: 1.3;
 }
 
 .project-role {
   font-size: 0.95rem;
-  color: #6366f1;
+  color: #B59E7D;
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .project-period {
   font-size: 0.85rem;
-  color: #6b7280;
+  color: #584738;
   font-weight: 600;
   white-space: nowrap;
-  padding: 0.25rem 0.75rem;
-  background: #f3f4f6;
-  border-radius: 4px;
+  padding: 0.35rem 0.85rem;
+  background: #CEC1A8;
+  border-radius: 6px;
 }
 
 .project-details {
@@ -124,7 +130,7 @@
   padding-left: 1.5rem;
   position: relative;
   margin-bottom: 0.6rem;
-  color: #4b5563;
+  color: #5a5a5a;
   line-height: 1.6;
   font-size: 0.95rem;
 }
@@ -133,7 +139,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #6366f1;
+  color: #B59E7D;
   font-weight: bold;
 }
 
@@ -146,9 +152,9 @@
 
 .tech-tag {
   padding: 0.35rem 0.75rem;
-  background: #f3f4f6;
-  color: #4b5563;
-  border-radius: 4px;
+  background: #CEC1A8;
+  color: #584738;
+  border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 500;
 }
@@ -157,19 +163,19 @@
   display: flex;
   gap: 1rem;
   padding-top: 0.5rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 2px solid #CEC1A8;
 }
 
 .project-link {
   font-size: 0.9rem;
-  color: #6366f1;
+  color: #B59E7D;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
 }
 
 .project-link:hover {
-  color: #4f46e5;
+  color: #584738;
 }
 
 /* Responsive */

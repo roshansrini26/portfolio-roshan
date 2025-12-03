@@ -10,5 +10,5 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./home.css']
 })
 export class Home {
-  
+  profileImage = 'assets/images/Profile.jpg';
 }
