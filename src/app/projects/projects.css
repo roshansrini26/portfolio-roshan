@@ -1,5 +1,6 @@
 /* ========================================
-   PROJECTS PAGE - projects.css
+   MODERN PROJECTS PAGE - projects.css
+   NEW COLOR SCHEME
    ======================================== */
 
 .projects-wrapper {
@@ -7,6 +8,8 @@
   margin: 0 auto;
   padding: 3rem 2rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #222831;
+  min-height: 100vh;
 }
 
 /* Header */
@@ -17,14 +20,17 @@
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #584738;
+  background: linear-gradient(135deg, #DFD0B8 0%, #948979 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.02em;
 }
 
 .page-description {
   font-size: 1.05rem;
-  color: #AAA396;
+  color: #b8b5b5;
   margin: 0;
 }
 
@@ -40,7 +46,7 @@
   top: 0;
   bottom: 0;
   width: 3px;
-  background: #CEC1A8;
+  background: linear-gradient(180deg, #948979 0%, rgba(148, 137, 121, 0.2) 100%);
 }
 
 .project-entry {
@@ -61,26 +67,53 @@
 .marker-dot {
   width: 16px;
   height: 16px;
-  background: #B59E7D;
-  border: 3px solid white;
+  background: #948979;
+  border: 3px solid #222831;
   border-radius: 50%;
-  box-shadow: 0 0 0 3px #CEC1A8;
+  box-shadow: 0 0 0 3px rgba(148, 137, 121, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(148, 137, 121, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(148, 137, 121, 0.1);
+  }
 }
 
 /* Project Card */
 .project-card {
-  background: white;
-  border: 2px solid #CEC1A8;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #393E46 0%, #2d3139 100%);
+  border: 2px solid rgba(148, 137, 121, 0.3);
+  border-radius: 16px;
   padding: 1.75rem;
-  transition: all 0.2s;
-  box-shadow: 0 2px 15px rgba(88, 71, 56, 0.08);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(180deg, #DFD0B8, #948979);
+  transition: height 0.3s ease;
 }
 
 .project-card:hover {
-  border-color: #B59E7D;
-  box-shadow: 0 4px 20px rgba(181, 158, 125, 0.15);
-  transform: translateY(-2px);
+  border-color: rgba(148, 137, 121, 0.6);
+  box-shadow: 0 8px 30px rgba(148, 137, 121, 0.3);
+  transform: translateY(-3px) translateX(5px);
+}
+
+.project-card:hover::before {
+  height: 100%;
 }
 
 .project-header {
@@ -98,26 +131,27 @@
 .project-title {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #584738;
+  color: #DFD0B8;
   margin: 0 0 0.3rem 0;
   line-height: 1.3;
 }
 
 .project-role {
   font-size: 0.95rem;
-  color: #B59E7D;
+  color: #948979;
   margin: 0;
   font-weight: 600;
 }
 
 .project-period {
   font-size: 0.85rem;
-  color: #584738;
+  color: #DFD0B8;
   font-weight: 600;
   white-space: nowrap;
   padding: 0.35rem 0.85rem;
-  background: #CEC1A8;
-  border-radius: 6px;
+  background: rgba(148, 137, 121, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(148, 137, 121, 0.3);
 }
 
 .project-details {
@@ -130,16 +164,16 @@
   padding-left: 1.5rem;
   position: relative;
   margin-bottom: 0.6rem;
-  color: #5a5a5a;
+  color: #b8b5b5;
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
 .project-details li::before {
-  content: "•";
+  content: "▸";
   position: absolute;
   left: 0;
-  color: #B59E7D;
+  color: #948979;
   font-weight: bold;
 }
 
@@ -152,30 +186,41 @@
 
 .tech-tag {
   padding: 0.35rem 0.75rem;
-  background: #CEC1A8;
-  color: #584738;
-  border-radius: 6px;
+  background: rgba(148, 137, 121, 0.2);
+  color: #DFD0B8;
+  border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 500;
+  border: 1px solid rgba(148, 137, 121, 0.3);
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(148, 137, 121, 0.35);
+  transform: translateY(-2px);
 }
 
 .project-links {
   display: flex;
   gap: 1rem;
   padding-top: 0.5rem;
-  border-top: 2px solid #CEC1A8;
+  border-top: 2px solid rgba(148, 137, 121, 0.3);
 }
 
 .project-link {
   font-size: 0.9rem;
-  color: #B59E7D;
+  color: #948979;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.2s;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .project-link:hover {
-  color: #584738;
+  color: #DFD0B8;
+  transform: translateX(3px);
 }
 
 /* Responsive */
