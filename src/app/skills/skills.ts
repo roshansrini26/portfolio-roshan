@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-interface Skill {
-  category: string;
-  items: string[];
+interface TechnicalSkill {
+  name: string;
+  categories: string[]; // Skills can belong to multiple categories
 }
 
 interface Network {
@@ -44,6 +44,59 @@ interface Certificate {
 })
 export class Skills {
   selectedCertificate: Certificate | null = null;
+  
+  // Skills filtering
+  selectedCategory: string = 'All';
+  categories: string[] = ['All', 'Data Science', 'Web Development', 'Machine Learning', 'Databases', 'Tools'];
+
+  technicalSkills: TechnicalSkill[] = [
+    // Programming Languages
+    { name: 'Python', categories: ['Data Science', 'Machine Learning'] },
+    { name: 'C++', categories: ['Data Science'] },
+    
+    // Web Development
+    { name: 'HTML5', categories: ['Web Development'] },
+    { name: 'CSS3', categories: ['Web Development'] },
+    { name: 'Bootstrap', categories: ['Web Development'] },
+    { name: 'Angular', categories: ['Web Development'] },
+    
+    // Machine Learning & AI
+    { name: 'TensorFlow', categories: ['Machine Learning'] },
+    { name: 'OpenCV', categories: ['Machine Learning'] },
+    { name: 'Hugging Face', categories: ['Machine Learning'] },
+    { name: 'BERT', categories: ['Machine Learning'] },
+    { name: 'Deep Learning', categories: ['Machine Learning'] },
+    { name: 'Computer Vision', categories: ['Machine Learning'] },
+    { name: 'Natural Language Processing', categories: ['Machine Learning'] },
+    
+    // Databases
+    { name: 'MySQL', categories: ['Databases'] },
+    { name: 'SQLAlchemy', categories: ['Databases'] },
+    { name: 'MongoDB', categories: ['Databases'] },
+    { name: 'PostgreSQL', categories: ['Databases'] },
+    
+    // Tools
+    { name: 'Jupyter Lab', categories: ['Tools', 'Data Science'] },
+    { name: 'Jupyter Notebook', categories: ['Tools', 'Data Science'] },
+    { name: 'Git/Github', categories: ['Tools'] },
+    { name: 'Microsoft PowerBI', categories: ['Tools', 'Data Science'] },
+    { name: 'MySQL Workbench', categories: ['Tools', 'Databases'] },
+    { name: 'Cloud Computing (AWS)', categories: ['Tools'] },
+  ];
+
+  // Filtered skills based on selected category
+  get filteredSkills(): TechnicalSkill[] {
+    if (this.selectedCategory === 'All') {
+      return this.technicalSkills;
+    }
+    return this.technicalSkills.filter(skill => 
+      skill.categories.includes(this.selectedCategory)
+    );
+  }
+
+  selectCategory(category: string): void {
+    this.selectedCategory = category;
+  }
 
   openCertificate(cert: Certificate): void {
     this.selectedCertificate = cert;
@@ -52,29 +105,6 @@ export class Skills {
   closeCertificate(): void {
     this.selectedCertificate = null;
   }
-
-  skills: Skill[] = [
-    {
-      category: 'Programming Languages',
-      items: ['Python', 'C++']
-    },
-    {
-      category: 'Frameworks & Libraries',
-      items: ['HTML5', 'CSS3', 'Bootstrap', 'Angular', 'TensorFlow', 'OpenCV', 'Hugging Face', 'BERT']
-    },
-    {
-      category: 'Database',
-      items: ['MySQL', 'SQLAlchemy', 'MongoDB']
-    },
-    {
-      category: 'Tools',
-      items: ['Jupyter Lab', 'Jupyter Notebook', 'Git/Github', 'Microsoft PowerBI', 'MySQL Workbench']
-    },
-    {
-      category: 'Specialized Domains',
-      items: ['Deep Learning', 'Computer Vision', 'Cloud Computing (AWS)', 'Natural Language Processing']
-    }
-  ];
 
   networks: Network[] = [
     {
