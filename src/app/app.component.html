@@ -1,0 +1,64 @@
+<!-- File: src/app/app.component.html (RENAME from app.html to app.component.html) -->
+<nav class="modern-navbar">
+  <div class="nav-container">
+    <a class="nav-logo" routerLink="/">
+      <span class="logo-text">Personal Portfolio</span>
+    </a>
+    
+    <button class="nav-toggle" 
+      type="button" 
+      (click)="toggleMenu()"
+      [class.active]="isMenuOpen">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </button>
+    
+    <div class="nav-menu" [class.active]="isMenuOpen">
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a class="nav-link" 
+            routerLink="/" 
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}"
+            (click)="closeMenu()">
+            <span class="link-text">{{ t.aboutMe }}</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" 
+            routerLink="/skills" 
+            routerLinkActive="active"
+            (click)="closeMenu()">
+            <span class="link-text">{{ t.skills }}</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" 
+            routerLink="/projects" 
+            routerLinkActive="active"
+            (click)="closeMenu()">
+            <span class="link-text">{{ t.projects }}</span>
+          </a>
+        </li>
+      </ul>
+      
+      <!-- Language Toggle -->
+      <div class="language-toggle">
+        <button 
+          class="lang-btn"
+          [class.active]="currentLanguage === 'en'"
+          (click)="switchLanguage('en')">
+          EN
+        </button>
+        <button 
+          class="lang-btn"
+          [class.active]="currentLanguage === 'de'"
+          (click)="switchLanguage('de')">
+          DE
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet />

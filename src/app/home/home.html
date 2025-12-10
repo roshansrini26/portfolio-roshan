@@ -6,37 +6,46 @@
       <div class="profile-image-container">
         <img [src]="profileImage" alt="Roshan Srinivasan" class="profile-image">
       </div>
+      
       <div class="text-content">
         <h1 class="name">Roshan Srinivasan</h1>
-        <p class="title">Data Science & AI Engineer</p>
-        <p class="bio">
-          Currently pursuing my Master's in Data Science at TU Hamburg. 
-          I work on machine learning solutions for real-world problems — 
-          from transport mode detection to brain tumor classification.
-        </p>
-        
+        <p class="title">{{ t.title }}</p>
+        <p class="bio">{{ t.bio }}</p>
         <div class="quick-links">
-          <a routerLink="/projects" class="link-button primary">View Projects</a>
-          <a routerLink="/skills" class="link-button secondary">My Skills</a>
+          <a routerLink="/projects" class="link-button primary">{{ t.viewProjects }}</a>
+          <a routerLink="/skills" class="link-button secondary">{{ t.mySkills }}</a>
         </div>
       </div>
       
       <div class="info-sidebar">
         <div class="info-item">
-          <span class="label">Location</span>
+          <span class="label">{{ t.location }}</span>
           <span class="value">Hamburg, Germany</span>
         </div>
         <div class="info-item">
-          <span class="label">Email</span>
+          <span class="label">{{ t.email }}</span>
           <a href="mailto:roshansrini26@gmail.com" class="value link">roshansrini26@gmail.com</a>
         </div>
         <div class="info-item">
-          <span class="label">Phone</span>
+          <span class="label">{{ t.phone }}</span>
           <span class="value">+49 15511303143</span>
         </div>
-        <div class="social-row">
-          <a href="https://www.linkedin.com/in/roshan-srini-201418222" target="_blank" class="social-link">LinkedIn</a>
-          <a href="https://github.com/roshansrini26" target="_blank" class="social-link">GitHub</a>
+        
+        <!-- Social & Contact Links -->
+        <div class="social-contact-section">
+          <div class="social-row">
+            <a href="https://www.linkedin.com/in/roshan-srini-201418222" target="_blank" class="social-link">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/roshansrini26" target="_blank" class="social-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+          
+          <!-- Get In Touch Button -->
+          <a href="mailto:roshansrini26@gmail.com" class="contact-cta">
+            <i class="fas fa-envelope"></i> {{ t.getInTouch }}
+          </a>
         </div>
       </div>
     </div>
@@ -44,7 +53,7 @@
 
   <!-- Experience Section -->
   <section class="experience-section">
-    <h2 class="section-heading">Current Work</h2>
+    <h2 class="section-heading">{{ t.currentWork }}</h2>
     <div class="exp-card">
       <div class="exp-header">
         <div>
@@ -63,8 +72,7 @@
 
   <!-- Education Section -->
   <section class="education-section">
-    <h2 class="section-heading">Education</h2>
-    
+    <h2 class="section-heading">{{ t.education }}</h2>
     <div class="edu-timeline">
       <div class="edu-item">
         <div class="timeline-dot"></div>
@@ -79,7 +87,7 @@
           <p class="location">Hamburg, Germany</p>
         </div>
       </div>
-
+      
       <div class="edu-item">
         <div class="timeline-dot"></div>
         <div class="edu-content">
@@ -100,16 +108,15 @@
   <section class="stats-section">
     <div class="stat-box">
       <div class="stat-number">2+</div>
-      <div class="stat-label">Years Experience</div>
+      <div class="stat-label">{{ t.yearsExperience }}</div>
     </div>
     <div class="stat-box">
       <div class="stat-number">5+</div>
-      <div class="stat-label">ML Projects</div>
+      <div class="stat-label">{{ t.mlProjects }}</div>
     </div>
     <div class="stat-box">
       <div class="stat-number">2</div>
-      <div class="stat-label">Publications</div>
+      <div class="stat-label">{{ t.publications }}</div>
     </div>
   </section>
-
 </div>

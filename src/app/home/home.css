@@ -172,7 +172,6 @@
 .social-row {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .social-link {
@@ -181,16 +180,60 @@
   color: #DFD0B8;
   text-decoration: none;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: all 0.3s ease;
   border: 1px solid rgba(148, 137, 121, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .social-link:hover {
   background: rgba(148, 137, 121, 0.35);
   border-color: #948979;
   transform: translateY(-2px);
+}
+
+.social-link i {
+  font-size: 1rem;
+}
+
+/* Social & Contact Section */
+.social-contact-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(148, 137, 121, 0.2);
+}
+
+/* Get In Touch CTA Button */
+.contact-cta {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #948979 0%, #766e5f 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(148, 137, 121, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.contact-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(148, 137, 121, 0.6);
+  background: linear-gradient(135deg, #DFD0B8 0%, #948979 100%);
+}
+
+.contact-cta i {
+  font-size: 1.1rem;
 }
 
 /* Experience Section */

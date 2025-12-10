@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 interface TechnicalSkill {
   name: string;
-  categories: string[]; // Skills can belong to multiple categories
+  categories: string[];
 }
 
 interface Network {

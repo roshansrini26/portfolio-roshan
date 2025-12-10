@@ -191,6 +191,39 @@ body {
   background: linear-gradient(135deg, #DFD0B8 0%, #948979 100%);
 }
 
+/* Language Toggle */
+.language-toggle {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(148, 137, 121, 0.15);
+  padding: 0.3rem;
+  border-radius: 50px;
+  border: 1px solid rgba(148, 137, 121, 0.3);
+}
+
+.lang-btn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: #948979;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 50px;
+}
+
+.lang-btn:hover {
+  color: #DFD0B8;
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, #948979 0%, #766e5f 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(148, 137, 121, 0.4);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .nav-toggle {
