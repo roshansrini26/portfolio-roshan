@@ -254,6 +254,133 @@
   color: #948979;
   font-size: 0.9rem;
 }
+/* Image Gallery Container */
+.image-gallery {
+  margin-top: 1.5rem;
+}
+
+.gallery-main {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(57, 62, 70, 0.5);
+  border: 2px solid rgba(148, 137, 121, 0.3);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-main:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+/* Navigation Arrows */
+.gallery-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  pointer-events: none;
+}
+
+.nav-arrow {
+  pointer-events: all;
+  width: 45px;
+  height: 45px;
+  background: rgba(148, 137, 121, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+}
+
+.gallery-main:hover .nav-arrow {
+  opacity: 1;
+}
+
+.nav-arrow:hover {
+  background: #DFD0B8;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.nav-arrow:active {
+  transform: scale(0.95);
+}
+
+/* Thumbnail Dots */
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(148, 137, 121, 0.3);
+  border: 2px solid rgba(148, 137, 121, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background: rgba(148, 137, 121, 0.6);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: #948979;
+  border-color: #948979;
+  width: 32px;
+  border-radius: 6px;
+}
+
+/* Image Counter */
+.image-counter {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #948979;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .gallery-main {
+    height: 250px;
+  }
+
+  .nav-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    opacity: 1; /* Always show on mobile */
+  }
+
+  .gallery-nav {
+    padding: 0 0.5rem;
+  }
+}
 
 /* Publications */
 .publications-list {

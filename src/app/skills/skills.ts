@@ -12,6 +12,7 @@ interface Network {
   title: string;
   organization: string;
   description: string[];
+  images: string[];
 }
 
 interface Publication {
@@ -48,7 +49,8 @@ export class Skills {
   // Skills filtering
   selectedCategory: string = 'All';
   categories: string[] = ['All', 'Data Science', 'Web Development', 'Machine Learning', 'Databases', 'Tools'];
-
+  currentImageIndex: { [key: number]: number } = {};
+  
   technicalSkills: TechnicalSkill[] = [
     // Programming Languages
     { name: 'Python', categories: ['Data Science', 'Machine Learning'] },
@@ -116,7 +118,8 @@ export class Skills {
         'Maintain and update the official team website',
         'Support event planning and coordination for workshops',
         'Design digital layouts and promotional materials'
-      ]
+      ],
+      images: []
     },
     {
       date: '01/2024 – 03/2024',
@@ -127,7 +130,8 @@ export class Skills {
         'Led coordination of a two-day national techfest',
         'Managed logistics and secured sponsorships',
         'Ensured seamless execution of technical activities'
-      ]
+      ],
+      images: ['assets/images/networks/tantrotsav.jpeg','assets/images/networks/tantrotsav_grp1.jpeg','assets/images/networks/tantrotsav_grp2.jpeg']
     },
     {
       date: '08/2023 – 07/2024',
@@ -138,7 +142,8 @@ export class Skills {
         'Organized workshops with Google experts',
         'Led events on Google Cloud Platform and Machine Learning',
         'Collaborated with sponsors and industry professionals'
-      ]
+      ],
+      images: ['assets/images/networks/GDSC.jpeg','assets/images/networks/GDSC_group.jpeg']
     },
     {
       date: '01/2023 – 05/2023',
@@ -149,11 +154,50 @@ export class Skills {
         'Guided students in Android development using Android Studio',
         'Provided hands-on assistance with UI design',
         'Supported database integration and app deployment'
-      ]
+      ],
+      images: []
     }
   ];
+  // Initialize current image indices
+  ngOnInit() {
+    this.networks.forEach((network, index) => {
+      this.currentImageIndex[index] = 0;
+    });
+  }
 
-  publications: Publication[] = [
+  // Navigate to previous image
+  previousImage(networkIndex: number): void {
+    const network = this.networks[networkIndex];
+    if (this.currentImageIndex[networkIndex] > 0) {
+      this.currentImageIndex[networkIndex]--;
+    } else {
+      // Loop to last image
+      this.currentImageIndex[networkIndex] = network.images.length - 1;
+    }
+  }
+
+  // Navigate to next image
+  nextImage(networkIndex: number): void {
+    const network = this.networks[networkIndex];
+    if (this.currentImageIndex[networkIndex] < network.images.length - 1) {
+      this.currentImageIndex[networkIndex]++;
+    } else {
+      // Loop to first image
+      this.currentImageIndex[networkIndex] = 0;
+    }
+  }
+
+  // Go to specific image
+  goToImage(networkIndex: number, imageIndex: number): void {
+    this.currentImageIndex[networkIndex] = imageIndex;
+  }
+
+// Get current image for a network
+getCurrentImage(networkIndex: number): string {
+  return this.networks[networkIndex].images[this.currentImageIndex[networkIndex]];
+}
+
+publications: Publication[] = [
     {
       year: '2025',
       title: 'Quantum-Assisted Deep Learning for Secure Brain Tumor Image Classification',

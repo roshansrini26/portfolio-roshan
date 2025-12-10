@@ -37,27 +37,67 @@
 </section>
 
   <!-- Networks & Memberships -->
-  <section class="section">
-    <h2 class="section-heading">Networks & Memberships</h2>
-    <div class="networks-list">
-      <div *ngFor="let network of networks" class="network-item">
-        <div class="network-header">
-          <div class="network-meta">
-            <span class="network-date">{{ network.date }}</span>
-            <span class="network-location">{{ network.location }}</span>
+<section class="section">
+  <h2 class="section-heading">Networks & Memberships</h2>
+  <div class="networks-list">
+    <div *ngFor="let network of networks; let i = index" class="network-item">
+      <div class="network-header">
+        <div class="network-meta">
+          <span class="network-date">{{ network.date }}</span>
+          <span class="network-location">{{ network.location }}</span>
+        </div>
+      </div>
+      <h3 class="network-title">{{ network.title }}</h3>
+      <p class="network-org">{{ network.organization }}</p>
+      <ul class="network-details">
+        <li *ngFor="let desc of network.description">{{ desc }}</li>
+      </ul>
+      
+      <!-- Image Gallery -->
+      <div class="image-gallery">
+        <!-- Main Image Display -->
+        <div class="gallery-main">
+          <img 
+            [src]="getCurrentImage(i)" 
+            [alt]="network.title" 
+            class="gallery-image">
+          
+          <!-- Navigation Arrows (only show if multiple images) -->
+          <div class="gallery-nav" *ngIf="network.images.length > 1">
+            <button 
+              class="nav-arrow nav-prev" 
+              (click)="previousImage(i)"
+              aria-label="Previous image">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button 
+              class="nav-arrow nav-next" 
+              (click)="nextImage(i)"
+              aria-label="Next image">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
         </div>
-        <h3 class="network-title">{{ network.title }}</h3>
-        <p class="network-org">{{ network.organization }}</p>
-        <ul class="network-details">
-          <li *ngFor="let desc of network.description">{{ desc }}</li>
-        </ul>
-        <div class="image-placeholder">
-          <span class="placeholder-text">Add photo here</span>
+        
+        <!-- Thumbnail Dots (only show if multiple images) -->
+        <div class="gallery-dots" *ngIf="network.images.length > 1">
+          <button
+            *ngFor="let img of network.images; let imgIndex = index"
+            class="dot"
+            [class.active]="currentImageIndex[i] === imgIndex"
+            (click)="goToImage(i, imgIndex)"
+            [attr.aria-label]="'Go to image ' + (imgIndex + 1)">
+          </button>
+        </div>
+        
+        <!-- Image Counter -->
+        <div class="image-counter" *ngIf="network.images.length > 1">
+          {{ currentImageIndex[i] + 1 }} / {{ network.images.length }}
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Publications -->
   <section class="section">
