@@ -119,7 +119,7 @@ export class Skills {
         'Support event planning and coordination for workshops',
         'Design digital layouts and promotional materials'
       ],
-      images: []
+      images: ['assets/images/networks/egnition.png']
     },
     {
       date: '01/2024 – 03/2024',
@@ -261,6 +261,18 @@ publications: Publication[] = [
       issuer: 'IBM',
       date: '2024',
       image: 'assets/images/certificates/Database and SQL.jpg'
+    },
+    {
+      name: 'ICEEICT Conference Paper',
+      issuer: 'IEEE Madras Section',
+      date:'2024',
+      image: 'assets/images/certificates/ICEEICT.jpg'
+    },
+    {
+      name: 'Google Developper Student Club',
+      issuer: 'Google',
+      date:'2024',
+      image: 'assets/images/certificates/GDSC.jpg'
     },
   ];
 
