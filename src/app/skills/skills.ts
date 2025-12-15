@@ -21,6 +21,7 @@ interface Publication {
   authors: string;
   description: string[];
   tech: string;
+  link?: string;
 }
 
 interface Achievement {
@@ -218,7 +219,8 @@ publications: Publication[] = [
         'Addressed class imbalance using SMOTE technique',
         'Published single-authored research paper'
       ],
-      tech: 'Random Forest, SMOTE, Python'
+      tech: 'Random Forest, SMOTE, Python',
+      link: 'https://ieeexplore.ieee.org/abstract/document/10718616'
     }
   ];
 

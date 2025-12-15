@@ -113,6 +113,9 @@
         <div class="pub-tech">
           <strong>Technology Stack:</strong> {{ pub.tech }}
         </div>
+        <div *ngIf="pub.link" class="pub-link">
+          <a [href]="pub.link" target="_blank">Visit Publication</a>
+        </div>
       </div>
     </div>
   </section>

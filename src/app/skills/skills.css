@@ -460,6 +460,14 @@
   color: #DFD0B8;
   border: 1px solid rgba(148, 137, 121, 0.2);
 }
+.pub-link a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #948979;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 /* ========================================
    SKILLS PAGE PART 2 - skills.css (continued)
    NEW COLOR SCHEME
