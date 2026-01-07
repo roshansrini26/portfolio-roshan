@@ -1,4 +1,4 @@
-// File: src/app/home/home.component.ts (Keep your folder structure)
+// File: src/app/home/home.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -18,5 +18,22 @@ export class Home {
 
   get t() {
     return this.langService.getTranslations().home;
+  }
+
+  // Method to download resume
+  downloadResume() {
+    // Make sure your resume PDF is in the public/assets folder
+    const resumePath = 'assets/resume/Roshan_Srinivasan_Resume.pdf';
+    
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    link.href = resumePath;
+    link.download = 'Roshan_Srinivasan_Resume.pdf'; // This sets the filename
+    link.target = '_blank';
+    
+    // Trigger the download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }
