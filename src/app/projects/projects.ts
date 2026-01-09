@@ -8,6 +8,7 @@ interface Project {
   role?: string;
   description: string[];
   technologies: string[];
+  category: 'data-science' | 'ai' | 'web-dev';
   link?: string;
   github?: string;
 }
@@ -20,12 +21,22 @@ interface Project {
   styleUrls: ['./projects.css']
 })
 export class Projects {
+  selectedCategory: string = 'all';
+  
+  categories = [
+    { id: 'all', label: 'All Projects' },
+    { id: 'data-science', label: 'Data Science & Analytics' },
+    { id: 'ai', label: 'AI & Machine Learning' },
+    { id: 'web-dev', label: 'Web Development' }
+  ];
+
   projects: Project[] = [
     {
       id: 1,
       period: 'Nov 2025 – Current',
       title: 'TUHH Program: Fishing for Experience with Walwin',
       role: 'SCRUM Master & Developer',
+      category: 'web-dev',
       description: [
         'Built core backend modules for a centralized scholarship platform',
         'Designed a recommendation system concept for scholarship matching',
@@ -38,6 +49,7 @@ export class Projects {
       id: 2,
       period: 'Jan 2025 – Feb 2025',
       title: 'Fitness Tracker for Barbell Exercises',
+      category: 'data-science',
       description: [
         'Processed raw sensor data for six barbell exercises, removing outliers using Chauvenet\'s Criterion',
         'Extracted features using PCA and Fourier Transformation',
@@ -50,6 +62,7 @@ export class Projects {
       id: 3,
       period: 'Dec 2024 – Jan 2025',
       title: 'Retail Q&A Tool Using LLM and Generative AI',
+      category: 'ai',
       description: [
         'Designed and implemented a large language model (LLM) to handle retail Q&A scenarios',
         'Leveraged Generative AI for accurate responses',
@@ -61,6 +74,7 @@ export class Projects {
       id: 4,
       period: '2024',
       title: 'Lane and Object Detection in Autonomous Vehicles',
+      category: 'ai',
       description: [
         'Developed a system for lane and object detection in video inputs',
         'Integrated computer vision techniques for real-time detection',
@@ -73,6 +87,7 @@ export class Projects {
       id: 5,
       period: '2024',
       title: 'Twitter Sentiment Analysis Using BERT',
+      category: 'ai',
       description: [
         'Built a model to classify tweets as positive, negative, or neutral',
         'Collected data via Tweepy API',
@@ -84,6 +99,7 @@ export class Projects {
       id: 6,
       period: '2023',
       title: 'Sales Insight Report Using SQL and Power BI',
+      category: 'data-science',
       description: [
         'Analyzed sales data to create interactive dashboards',
         'Enabled stakeholders to identify trends across office locations',
@@ -95,6 +111,7 @@ export class Projects {
       id: 7,
       period: '2023',
       title: 'Reminder Application',
+      category: 'web-dev',
       description: [
         'Full stack web application that stores users\' notes and sends notifications',
         'Implemented user authentication and database management',
@@ -103,4 +120,20 @@ export class Projects {
       technologies: ['Flask', 'SQLAlchemy', 'Python', 'SQL']
     }
   ];
+
+  get filteredProjects(): Project[] {
+    if (this.selectedCategory === 'all') {
+      return this.projects;
+    }
+    return this.projects.filter(p => p.category === this.selectedCategory);
+  }
+
+  setCategory(categoryId: string): void {
+    this.selectedCategory = categoryId;
+  }
+
+  getCategoryLabel(categoryId: string): string {
+    const category = this.categories.find(c => c.id === categoryId);
+    return category ? category.label : '';
+  }
 }

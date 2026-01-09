@@ -1,6 +1,6 @@
 /* ========================================
    MODERN PROJECTS PAGE - projects.css
-   NEW COLOR SCHEME
+   WITH ANIMATIONS & COLOR-CODED FILTERS
    ======================================== */
 
 .projects-wrapper {
@@ -14,7 +14,7 @@
 
 /* Header */
 .projects-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .page-title {
@@ -30,6 +30,111 @@
 
 .page-description {
   font-size: 1.05rem;
+  color: #b8b5b5;
+  margin: 0;
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 2.5rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  background: rgba(148, 137, 121, 0.15);
+  color: #b8b5b5;
+  border: 2px solid rgba(148, 137, 121, 0.3);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-btn:hover {
+  background: rgba(148, 137, 121, 0.25);
+  border-color: rgba(148, 137, 121, 0.5);
+  color: #DFD0B8;
+  transform: scale(1.05);
+}
+
+.filter-btn:active {
+  transform: scale(0.98);
+}
+
+/* Color-coded active states */
+.filter-btn.active {
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+/* All Projects */
+.filter-btn.active[data-category="all"] {
+  background: linear-gradient(135deg, #948979, #7a6d61);
+  border-color: #DFD0B8;
+}
+
+/* Data Science */
+.filter-btn.active[data-category="data-science"] {
+  background: linear-gradient(135deg, #DFD0B8, #948979);
+  border-color: #DFD0B8;
+  box-shadow: 0 4px 20px rgba(223, 208, 184, 0.3);
+}
+
+/* AI & ML */
+.filter-btn.active[data-category="ai"] {
+  background: linear-gradient(135deg, #948979, #7a6d61);
+  border-color: #948979;
+  box-shadow: 0 4px 20px rgba(148, 137, 121, 0.3);
+}
+
+/* Web Development */
+.filter-btn.active[data-category="web-dev"] {
+  background: linear-gradient(135deg, #DFD0B8, #948979);
+  border-color: #DFD0B8;
+  box-shadow: 0 4px 20px rgba(223, 208, 184, 0.3);
+}
+
+.filter-count {
+  font-size: 0.9rem;
+  color: #948979;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.empty-state-title {
+  font-size: 1.5rem;
+  color: #DFD0B8;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.empty-state-text {
+  font-size: 1rem;
   color: #b8b5b5;
   margin: 0;
 }
@@ -52,10 +157,59 @@
 .project-entry {
   position: relative;
   margin-bottom: 2.5rem;
+  animation: slideInUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-entry:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.project-entry:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.project-entry:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.project-entry:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.project-entry:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.project-entry:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.project-entry:nth-child(7) {
+  animation-delay: 0.35s;
 }
 
 .project-entry:last-child {
   margin-bottom: 0;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .timeline-marker {
@@ -116,12 +270,43 @@
   height: 100%;
 }
 
+/* Category Badge */
+.category-badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+  width: fit-content;
+}
+
+.category-badge.data-science {
+  background: rgba(223, 208, 184, 0.2);
+  color: #DFD0B8;
+  border: 1px solid rgba(223, 208, 184, 0.5);
+}
+
+.category-badge.ai {
+  background: rgba(148, 137, 121, 0.2);
+  color: #948979;
+  border: 1px solid rgba(148, 137, 121, 0.5);
+}
+
+.category-badge.web-dev {
+  background: rgba(223, 208, 184, 0.2);
+  color: #DFD0B8;
+  border: 1px solid rgba(223, 208, 184, 0.5);
+}
+
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .header-main {
@@ -233,6 +418,15 @@
     font-size: 2rem;
   }
 
+  .filter-buttons {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
   .timeline-container {
     padding-left: 2rem;
   }
@@ -261,5 +455,17 @@
   .project-links {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .empty-state {
+    padding: 3rem 1rem;
+  }
+
+  .empty-state-icon {
+    font-size: 2.5rem;
+  }
+
+  .empty-state-title {
+    font-size: 1.25rem;
   }
 }

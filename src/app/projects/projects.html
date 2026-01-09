@@ -1,19 +1,43 @@
 <div class="projects-wrapper">
-  
   <header class="projects-header">
     <h1 class="page-title">Projects</h1>
     <p class="page-description">A chronological overview of my technical work and contributions</p>
   </header>
 
-  <div class="timeline-container">
+  <!-- Filter Buttons -->
+  <div class="filter-section">
+    <div class="filter-buttons">
+      <button
+        *ngFor="let category of categories"
+        [class.active]="selectedCategory === category.id"
+        [attr.data-category]="category.id"
+        (click)="setCategory(category.id)"
+        class="filter-btn"
+      >
+        {{ category.label }}
+      </button>
+    </div>
+    <p class="filter-count">{{ filteredProjects.length }} project{{ filteredProjects.length !== 1 ? 's' : '' }}</p>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="filteredProjects.length === 0" class="empty-state">
+    <div class="empty-state-icon">📭</div>
+    <h3 class="empty-state-title">No Projects Yet</h3>
+    <p class="empty-state-text">More exciting projects coming soon in this category!</p>
+  </div>
+
+  <!-- Projects Timeline -->
+  <div *ngIf="filteredProjects.length > 0" class="timeline-container">
     <div class="timeline-track"></div>
-    
-    <div *ngFor="let project of projects; let i = index" class="project-entry">
+    <div *ngFor="let project of filteredProjects; let i = index" class="project-entry">
       <div class="timeline-marker">
         <div class="marker-dot"></div>
       </div>
-      
       <div class="project-card">
+        <div [ngClass]="'category-badge ' + project.category">
+          {{ getCategoryLabel(project.category) }}
+        </div>
         <div class="project-header">
           <div class="header-main">
             <h2 class="project-title">{{ project.title }}</h2>
@@ -21,15 +45,12 @@
           </div>
           <span class="project-period">{{ project.period }}</span>
         </div>
-        
         <ul class="project-details">
           <li *ngFor="let detail of project.description">{{ detail }}</li>
         </ul>
-        
         <div class="tech-tags">
           <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
         </div>
-        
         <div *ngIf="project.github || project.link" class="project-links">
           <a *ngIf="project.github" [href]="project.github" target="_blank" class="project-link">
             View on GitHub →
@@ -41,5 +62,4 @@
       </div>
     </div>
   </div>
-
 </div>
